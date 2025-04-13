@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabela de Jogos</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+      .table-container {
+        width: 90%;
+        max-width: 800px;
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .game-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        position: relative; /* Para posicionar a data corretamente */
+      }
+      .player {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .player img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #ddd;
+      }
+      .player span {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+      }
+      .versus {
+        font-size: 18px;
+        font-weight: bold;
+        color: #555;
+        position: relative; /* Para permitir o posicionamento da data acima */
+      }
+      .date {
+        font-size: 14px;
+        font-weight: normal;
+        color: #777;
+        position: absolute;
+        top: -20px; /* Coloca a data acima do "X" */
+        left: 50%;
+        transform: translateX(-50%); /* Alinha a data ao centro do "X" */
+      }
+      .location {
+        font-size: 14px;
+        font-weight: normal;
+        color: #777;
+        margin-left: 10px;
+      }
+      .footer-button {
+        position: absolute;
+        bottom: 20px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+      .footer-button button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .footer-button button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="table-container">
+      <div class="game-row">
+        <div class="player">
+          <img src="C.PNG" alt="Player 1" />
+          <span>PG CONECTADOS EM CRISTO</span>
+        </div>
+        <div class="versus">
+          <div class="date">12/12/2024</div>
+          <!-- Data acima do "X" -->
+          X
+        </div>
+        <div class="player">
+          <img src="D.PNG" alt="Player 2" />
+          <span>PG DEUS É AMOR</span>
+        </div>
+        <div class="location">Local: IASD PETRONILIA</div>
+      </div>
+      <div class="game-row">
+        <div class="player">
+          <img src="F.jpg" alt="Player 3" />
+          <span>PG AMIGOS EM CRISTO</span>
+        </div>
+        <div class="versus">
+          <div class="date">13/12/2024</div>
+          <!-- Data acima do "X" -->
+          X
+        </div>
+        <div class="player">
+          <img src="Camp.png" alt="Player 4" />
+          <span>PG VASO NOVO</span>
+        </div>
+        <div class="location">Local: IASD VILA VALERIA</div>
+      </div>
+      <!-- Adicione mais linhas de jogos aqui -->
+    </div>
+    <div class="footer-button">
+      <button type="button" onclick="location.href='inicial.html'">
+        Página Inicial
+      </button>
+    </div>
+  </body>
+</html>

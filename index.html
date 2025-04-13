@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Concurso Bíblico</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="quiz-container">
+      <!-- Tela de Login -->
+      <div id="login-screen">
+        <h1>PG MY LIFE</h1>
+        <form id="loginForm">
+          <label for="username">Usuário:</label>
+          <input type="text" id="username" name="username" required />
+          <br />
+          <label for="password">Senha:</label>
+          <input type="password" id="password" name="password" required />
+          <br />
+          <button type="button" onclick="validateLogin()">Entrar</button>
+          <!--<button type="button" onclick="registerUser()">Cadastrar</button>-->
+          <button type="button" onclick="location.href='inicial.html'">
+            Página Inicial
+          </button>
+        </form>
+      </div>
+
+      <!-- Tela Inicial do Jogo -->
+      <div id="start-screen" style="display: none">
+        <h1>CONCURSO BÍBLICO</h1>
+        <button id="startButton" onclick="startGame()" disabled>
+          Iniciar Jogo
+        </button>
+        <button type="button" onclick="location.href='inicial.html'">
+          Página Inicial
+        </button>
+      </div>
+
+      <!-- Placar das Equipes -->
+      <div id="team-scores" style="display: none">
+        <div id="teamA" class="team">Equipe A: <span id="scoreA">0</span></div>
+        <div id="teamB" class="team">Equipe B: <span id="scoreB">0</span></div>
+      </div>
+
+      <!-- Quiz -->
+      <div id="quiz" style="display: none">
+        <div id="question" class="question"></div>
+        <ul id="options" class="options"></ul>
+        <button id="nextButton" onclick="nextQuestion()">
+          Próxima Pergunta
+        </button>
+        <audio id="backgroundMusic" loop>
+          <source src="Eu sou feliz.mp3" type="audio/mpeg" />
+          Seu navegador não suporta o elemento de áudio.
+        </audio>
+        <button id="toggleMusicButton" onclick="toggleMusic()">
+          Tocar/Pausar Música
+        </button>
+        <button type="button" onclick="location.href='inicial.html'">
+          Página Inicial
+        </button>
+        <div id="result">
+          <!-- Resultado do jogo será exibido aqui -->
+        </div>
+      </div>
+
+      <!-- Resultado -->
+      <div id="result" style="display: none"></div>
+
+      <!-- Seletor de Perguntas -->
+      <div id="question-selector" style="display: none">
+        <h2>Seletor de Perguntas</h2>
+        <ul id="question-list"></ul>
+        <button type="button" onclick="location.href='inicial.html'">
+          Página Inicial
+        </button>
+        <div id="result">
+          <!-- Resultado do jogo será exibido aqui -->
+        </div>
+        <button onclick="captureAndDownloadScreenshot()">Tirar Print</button>
+      </div>
+
+      <!-- Seletor de Times -->
+      <div
+        id="team-selection"
+        style="text-align: center; margin-top: 20px; display: none"
+      >
+        <div style="margin-bottom: 20px">
+          <label for="teamA-select">Selecione a Equipe A:</label>
+          <select id="teamA-select" onchange="updateTeam('A')">
+            <option value="C.PNG">Conectados em Cristo</option>
+            <option value="D.PNG">Deus é Amor</option>
+            <option value="teamA.png">Amigos em Cristo</option>
+          </select>
+        </div>
+        <div style="margin-bottom: 20px">
+          <label for="teamB-select">Selecione a Equipe B:</label>
+          <select id="teamB-select" onchange="updateTeam('B')">
+            <option value="C.PNG">Conectados em Cristo</option>
+            <option value="D.PNG">Deus é Amor</option>
+            <option value="teamA.png">Amigos em Cristo</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Fotos das Equipes -->
+      <div
+        id="teamA-photo"
+        style="
+          position: absolute;
+          left: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          text-align: center;
+          display: none;
+        "
+      >
+        <div id="teamA-name"></div>
+        <img
+          src="team.png"
+          alt="Equipe A"
+          style="width: 200px; height: 200px; border-radius: 50%"
+        />
+      </div>
+      <div
+        id="teamB-photo"
+        style="
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          text-align: center;
+          display: none;
+        "
+      >
+        <div id="teamB-name"></div>
+        <img
+          src="team.png"
+          alt="Equipe B"
+          style="width: 200px; height: 200px; border-radius: 50%"
+        />
+      </div>
+    </div>
+
+    <!-- Botão Página Inicial (escondido inicialmente) -->
+    <div class="footer-button" style="display: none" id="homeButtonContainer">
+      <button type="button" onclick="location.href='inicial.html'">
+        Página Inicial
+      </button>
+    </div>
+
+    <script>
+      // Define a data de liberação
+      const releaseDate = new Date("2024-12-11T00:00:00");
+
+      // Verifica a data atual
+      const now = new Date();
+
+      if (now >= releaseDate) {
+        document.getElementById("startButton").disabled = false;
+      } else {
+        const startGameButton = document.getElementById("startGameButton");
+        startGameButton.disabled = true;
+        startGameButton.textContent = `Disponível em ${releaseDate.toLocaleDateString()}`;
+      }
+
+      setInterval(() => {
+        const now = new Date();
+        if (now >= releaseDate) {
+          const startGameButton = document.getElementById("startButton");
+          startGameButton.disabled = false;
+          startGameButton.textContent = "Iniciar Jogo";
+        }
+      }, 1000);
+
+      // Simulação de login
+      function validateLogin() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        if (username === "admin" && password === "1234") {
+          alert("Login realizado com sucesso!");
+
+          document.getElementById("login-screen").style.display = "none";
+          document.getElementById("start-screen").style.display = "block";
+
+          // Mostra o botão Página Inicial após login
+          document.getElementById("homeButtonContainer").style.display =
+            "block";
+        } else {
+          alert("Usuário ou senha inválidos!");
+        }
+      }
+
+      function registerUser() {
+        alert("Funcionalidade de cadastro ainda não implementada.");
+      }
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

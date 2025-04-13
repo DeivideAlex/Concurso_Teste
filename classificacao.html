@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classificação de PG'S</title>
+    <link rel="stylesheet" href="styles.cs" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+
+      .container {
+        max-width: auto;
+        margin: auto;
+        height:auto;
+        padding: 20px;
+      }
+
+      .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .tab-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .tab-button:hover {
+        background-color: #0056b3;
+      }
+
+      .tab-content {
+        display: none;
+        padding: 20px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        color: white;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      .classification-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.8);
+        color: #333;
+        font-size: 14px;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #007bff;
+        color: white;
+      }
+
+      .player {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .player img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .footer-button {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .footer-button button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .footer-button button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Responsividade */
+      @media (max-width: 768px) {
+        .tabs {
+          flex-direction: column;
+        }
+
+        .tab-button {
+          font-size: 14px;
+        }
+
+        .classification-table th,
+        .classification-table td {
+          font-size: 12px;
+        }
+       .player img {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .classification-table {
+          font-size: 12px;
+        }
+
+        .tab-button {
+          padding: 8px 16px;
+          font-size: 12px;
+        }
+
+        .footer-button button {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="tabs">
+        <button class="tab-button" onclick="showTab('adult')">
+          Classificação PG MY LIFE (Ad e Jv)
+        </button>
+        <button class="tab-button" onclick="showTab('kids')">
+          Classificação PG's Kids
+        </button>
+        <button class="tab-button" onclick="showTab('teen')">
+          Classificação PG's Teen
+        </button>
+      </div>
+
+      <div
+        id="adult"
+        class="tab-content active"
+        style="background-image: url('AJ.png')"
+      >
+        <div class="footer-button">
+          <button type="button" onclick="location.href='inicial.html'">
+            Página Inicial
+          </button>
+        </div>
+        <h1 style="color: rgb(23, 5, 189);">Classificação PG MY LIFE</h1>
+        <table class="classification-table">
+          <thead>
+            <tr>
+              <th>Classificação</th>
+              <th>PG'S</th>
+              <th>IGREJA</th>
+              <th>PTS</th>
+              <th>Desafios</th>
+            </tr>
+          </thead>
+          <tbody>
+             <td>1</td>
+          <td class="player">
+            <img src="RE.jpeg" alt="Player 4" />ROCHA ETERNA
+          </td>
+          <td>BENEDITO JENKIS</td>
+          <td>101</td>
+          <td>39</td>
+          </tr>
+          <td>2</td>
+          <td class="player">
+            <img src="AJ.png" alt="Player 4" />ADORADORES
+          </td>
+          <td>JANUARIO</td>
+          <td>74</td>
+          <td>32</td>
+           </tr>   
+            <td>3</td>
+            <td class="player">
+              <img src="AJ.png" alt="Player 4" />UNIDOS EM CRISTO
+            </td>
+            <td>BENEDITO JENKIS</td>
+            <td>74</td>
+            <td>30</td>
+          </tr>         
+           <td>4</td>
+           <td class="player">
+             <img src="C.PNG" alt="Player 4" />CONECTADOS EM CRISTO
+           </td>
+           <td>PETRONILIA</td>
+           <td>45</td>
+           <td>13</td>
+         </tr>
+         <td>5</td>
+         <td class="player">
+           <img src="AJ.png" alt="Player 4" />COM CRISTO VENCEREMOS
+         </td>
+         <td>JANUARIO</td>
+         <td>39</td>
+         <td>15</td>
+         </tr>
+           <td>6</td>
+           <td class="player">
+             <img src="D.PNG" alt="Player 4" />DEUS É AMOR
+           </td>
+           <td>PETRONILIA</td>
+           <td>39</td>
+           <td>13</td>
+          </tr>       
+           <td>7</td>
+           <td class="player">
+             <img src="AJ.png" alt="Player 4" />MÃOS EM AÇÃO
+           </td>
+           <td>DERBA</td>
+           <td>33</td>
+           <td>8</td>
+           </tr>             
+           <td>8</td>
+           <td class="player">
+          <img src="AJ.png" alt="Player 4" />VEREI JESUS
+           </td>
+          <td>BENEDITO JENKIS</td>
+          <td>32</td>
+          <td>11</td>
+           </tr>         
+          </tr>
+          <td>9</td>
+          <td class="player">
+            <img src="AJ.png" alt="Player 4" />VASO NOVO
+          </td>
+          <td>PETRONILIA</td>
+          <td>27</td>
+          <td>8</td>
+          </tr>   
+            <td>10</td>
+            <td class="player">
+              <img src="AJ.png" alt="Player 4" />LAÇOS PARA ETERNIDADE
+            </td>
+            <td>JANUARIO</td>
+            <td>20</td>
+            <td>9</td>
+            <tr> 
+              <td>11</td>
+              <td class="player">
+                <img src="AJ.png" alt="Player 4" />ÉS O MEU REFUGIO
+              </td>
+              <td>BENEDITO JENKIS</td>
+              <td>14</td>
+              <td>5</td>
+              </tr>                            
+            <td>12</td>
+            <td class="player">
+           <img src="AJ.png" alt="Player 4" />FAMILIA DE ESPERANÇA
+            </td>
+            <td>CAIXA D AGUA</td>
+            <td>13</td>
+            <td>6</td>
+            </tr>
+            <td>13</td>
+            <td class="player">
+              <img src="AJ.png" alt="Player 4" />RENOVO
+            </td>
+            <td>VALERIA</td>
+            <td>12</td>
+            <td>4</td>
+          </tr>         
+          <td>14</td>
+          <td class="player">
+            <img src="Rei dos Reis.jpg" alt="Player 4" />REI DOS REIS
+          </td>
+          <td>PALMEIRAS</td>
+          <td>12</td>
+          <td>4</td>
+        </tr> 
+        <td>15</td>
+        <td class="player">
+          <img src="Unidos pela palavra.jpg" alt="Player 4" />UNIDOS PELA
+          PALAVRA
+        </td>
+        <td>PALMEIRAS</td>
+        <td>12</td>
+        <td>4</td>
+      </tr>
+      <td>16</td>
+      <td class="player">
+        <img src="AJ.png" alt="Player 4" />THE CHOSEN
+      </td>
+      <td>VILA VALERIA</td>
+      <td>12</td>
+      <td>3</td>
+    </tr>   
+            <td>17</td>
+              <td class="player">
+                <img src="am.jpeg" alt="Player 4" />AMIGOS EM CRISTO
+              </td>
+              <td>PETRONILIA</td>
+              <td>11</td>
+              <td>3</td>
+            </tr>                             
+            <td>18</td>
+            <td class="player">
+              <img src="AJ.png" alt="Player 4" />RECANTO DO LUAR
+            </td>
+            <td>MARTACENIA</td>
+            <td>9</td>
+            <td>3</td>
+            </tr>              
+            <td>19</td>
+            <td class="player">
+              <img src="AJ.png" alt="Player 4" />NOVA CANAÃ
+            </td>
+            <td>VALERIA</td>
+            <td>8</td>
+            <td>3</td>
+          </tr>
+          <td>20</td>
+          <td class="player">
+            <img src="AJ.png" alt="Player 4" />UNIDOS EM CRISTO
+          </td>
+          <td>VILA TROPICAL</td>
+          <td>8</td>
+          <td>2</td>
+        </tr>
+         <td>21</td>
+              <td class="player">
+                <img src="unidospg.jpeg" alt="Player 4" />UNIDOS EM CRISTO
+              </td>
+              <td>MARTACENIA</td>
+              <td>6</td>
+              <td>2</td>
+            </tr>                    
+            <tr>
+              <td>22</td>
+              <td class="player">
+                <img src="AJ.png" alt="Player 4" />AGUA DA VIDA
+              </td>
+              <td>PRESIDENTE MEDICI</td>
+              <td>5</td>
+              <td>1</td>
+              </tr>
+            </tr>       
+          <tr>
+            <td>23</td>
+            <td class="player">
+              <img src="marpg.jpeg" alt="Player 4" />MARANATA
+            </td>
+            <td>MARTACENIA</td>
+            <td>5</td>
+            <td>2</td>
+            </tr>
+            <td>24</td>
+                <td class="player">
+                  <img src="AJ.png" alt="Player 4" />PG SEM NOME/VIZINHAS
+                </td>
+                <td>VILA VALERIA</td>
+                <td>4</td>
+                <td>2</td>
+              </tr>                                             
+          <td>25</td>
+                <td class="player">
+                  <img src="AJ.png" alt="Player 4" />COROADOS POR CRISTO
+                </td>
+                <td>VILA VALERIA</td>
+                <td>3</td>
+                <td>1</td>
+              </tr>                  
+             <td>26</td>
+            <td class="player">
+              <img src="AJ.png" alt="Player 4" />ATALAIAS DO SENHOR
+            </td>
+            <td>PRESIDENTE MEDICI</td>
+            <td>3</td>
+            <td>1</td>
+          </tr>         
+              <td>27</td>
+              <td class="player">
+                <img src="AJ.png" alt="Player 4" />ELLOS
+              </td>
+              <td>MARTACENIA</td>
+              <td>3</td>
+              <td>1</td>
+              </tr>
+              <td>28</td>
+              <td class="player">
+                <img src="sublpg.jpeg" alt="Player 4" />SUBLIME AMOR
+              </td>
+              <td>MARTACENIA</td>
+              <td>3</td>
+              <td>1</td>
+              </tr>
+              <td>29</td>
+              <td class="player">
+                <img src="vitorpg.jpeg" alt="Player 4" />VITORIOSOS EM CRISTO
+              </td>
+              <td>MARTACENIA</td>
+              <td>3</td>
+              <td>1</td>
+              </tr>
+              <td>30</td>
+              <td class="player">
+                <img src="AJ.png" alt="Player 4" />JADE
+              </td>
+              <td>MARTACENIA</td>
+              <td>3</td>
+              <td>1</td>
+              </tr>          
+      <td>31</td>
+    <td class="player">
+      <img src="AJ.png" alt="Player 4" />REFÚGIO
+    </td>
+    <td>VILA VALERIA</td>
+    <td>0</td>
+    <td>0</td>
+  </tr>
+            <!-- Outras linhas... -->
+          </tbody>
+        </table>
+      </div>
+      <div
+        id="kids"
+        class="tab-content"
+        style="background-image: url('kids.png')"
+      >
+        <div class="footer-button">
+          <button type="button" onclick="location.href='inicial.html'">
+            Página Inicial
+          </button>
+        </div>
+        <h1 style="color: rgb(23, 5, 189);">Classificação PG Kids</h1>
+        <table class="classification-table">
+          <thead>
+            <tr>
+              <th>Classificação</th>
+              <th>PG'S</th>
+              <th>IGREJA</th>
+              <th>PTS</th>
+              <th>Desafios</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="player">
+                <img src="kids.png" alt="Player 4" />JARDIM DE DEUS
+              </td>
+              <td>JANUARIO</td>
+              <td>41</td>
+              <td>9</td>
+            </tr>
+            <td>2</td>
+            <td class="player">
+              <img src="kids.png" alt="Player 4" />CALEBE
+            </td>
+            <td>PETRONILIA</td>
+            <td>40</td>
+            <td>11</td>
+          </tr>  
+            <td>3</td>
+            <td class="player">
+              <img src="kids.png" alt="Player 4" />PEQUENOS DO SENHOR
+            </td>
+            <td>VILA VALERIA</td>
+            <td>36</td>
+            <td>11</td>
+          </tr>                  
+            <tr>
+            <td>4</td>
+            <td class="player">
+              <img src="kids.png" alt="Player 4" />KID'S DE JESUS
+            </td>
+            <td>VALERIA</td>
+            <td>11</td>
+            <td>3</td>
+          </tr>            
+            <td>5</td>
+              <td class="player">
+                <img src="Querubins.jpg" alt="Player 4" />QUERUBINS DE CRISTO
+              </td>
+              <td>PALMEIRAS</td>
+              <td>9</td>
+              <td>3</td>
+            </tr>           
+              <td>6</td>
+              <td class="player">
+                <img src="kids.png" alt="Player 4" />SOLDADINHOS DE JESUS
+              </td>
+              <td>VILA TROPICAL</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+            <!-- Outras linhas... -->
+          </tbody>
+        </table>
+      </div>
+      <div
+        id="teen"
+        class="tab-content"
+        style="background-image: url('teen.png')"
+      >
+        <div class="footer-button">
+          <button type="button" onclick="location.href='inicial.html'">
+            Página Inicial
+          </button>
+        </div>
+        <h1 style="color: rgb(23, 5, 189);">Classificação PG Teen</h1>
+        <table class="classification-table">
+          <thead>
+            <tr>
+              <th>Classificação</th>
+              <th>PG'S</th>
+              <th>IGREJA</th>
+              <th>PTS</th>
+              <th>Desafios</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="player">
+                <img src="teen.png" alt="Player 4" />ESPADA DE DOIS GUMES
+              </td>
+              <td>CAIXA D'AGUA</td>
+              <td>48</td>
+              <td>20</td>
+            </tr> 
+              <td>2</td>
+              <td class="player">
+                <img src="teen.png" alt="Player 4" />BRILHO CELESTE
+              </td>
+              <td>JANUARIO</td>
+              <td>38</td>
+              <td>15</td>
+            </tr>            
+            <td>3</td>
+              <td class="player">
+                  <img src="S.jpeg" alt="Player 4" />SOL DA JUSTIÇA
+                </td>
+                <td>AGUAS CLARAS/SEDE</td>
+                <td>22</td>
+                <td>7</td>
+              </tr>        
+            <td>4</td>
+            <td class="player">
+              <img src="teen.png" alt="Player 4" />JIHAD
+            </td>
+            <td>MARTACENIA</td>
+            <td>19</td>
+            <td>7</td>
+          </tr>                          
+              <td>5</td>
+              <td class="player">
+                <img src="teen.png" alt="Player 4" />SOU LUZ
+              </td>
+              <td>PETRONILIA</td>
+              <td>17</td>
+              <td>5</td>
+            </tr>
+             <td>6</td>
+            <td class="player">
+              <img src="teen.png" alt="Player 4" />OS ESCOLHIDOS
+            </td>
+            <td>PALMEIRAS</td>
+            <td>9</td>
+            <td>3</td>
+          </tr>
+          <td>7</td>
+              <td class="player">
+                <img src="teen.png" alt="Player 4" />CONEXÃO TEEN
+              </td>
+              <td>VALERIA</td>
+              <td>5</td>
+              <td>2</td>
+            </tr>      
+            <tr>
+              <td>8</td>
+              <td class="player">
+                <img src="teen.png" alt="Player 4" />ESCUDO DA FÉ
+              </td>
+              <td>BENEDITO JENKIS</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <!-- Outras linhas... -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script>
+      function showTab(tabId) {
+        const tabs = document.querySelectorAll(".tab-content");
+        tabs.forEach((tab) => tab.classList.remove("active"));
+        document.getElementById(tabId).classList.add("active");
+      }
+    </script>
+  </body>
+</html>

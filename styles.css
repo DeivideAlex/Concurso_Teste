@@ -1,0 +1,174 @@
+/* Estilos gerais (desktop e dispositivos grandes) */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url("F.jpg"); /* Substitua pelo caminho da sua imagem */
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: center; /* Centraliza a imagem de fundo */
+}
+label {
+  padding-bottom: 10px;
+}
+input {
+  margin-bottom: 10px;
+}
+.quiz-container {
+  width: 90%;
+  max-width: 600px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+.team {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.question {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.options {
+  list-style: none;
+  padding: 0;
+}
+
+.options li {
+  margin: 10px 0;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#teamA-name,
+#teamB-name {
+  font-weight: bold;
+  max-width: max-content;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+#teamA-name {
+  background: rgba(241, 228, 32, 0.788);
+  margin-left: 40px;
+}
+
+#teamB-name {
+  background: rgba(72, 211, 17, 0.596);
+  margin-left: 40px;
+}
+
+#teamA-photo,
+#teamB-photo {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+#teamA-photo {
+  left: 10px;
+}
+
+#teamB-photo {
+  right: 10px;
+}
+
+#teamA-photo img,
+#teamB-photo img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+/* Ajustes para dispositivos móveis (telas menores que 768px) */
+@media (max-width: auto) {
+  body {
+    background-size: auto; /* Ajusta a imagem de fundo para caber na tela menor */
+  }
+
+  .quiz-container {
+    max-width: cover;
+    padding: 10px;
+    margin-top: 50px;
+  }
+
+  #teamA-photo,
+  #teamB-photo {
+    position: static;
+    transform: none;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    display: none;
+  }
+
+  #teamA-photo img,
+  #teamB-photo img {
+    width: 150px;
+    height: 150px;
+    display: none;
+  }
+
+  .question {
+    font-size: 1.2em;
+  }
+
+  .options li {
+    font-size: 1em;
+  }
+
+  button {
+    font-size: 1em;
+    padding: 8px 15px;
+  }
+
+  #team-scores {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.2em;
+  }
+}
+.tab-content {
+  display: none;
+  padding: 20px;
+  background-size: contain; /* Garante que a imagem fique completamente visível */
+  background-position: center;
+  background-repeat: no-repeat; /* Evita repetição da imagem */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: white;
+  min-height: 400px; /* Garante altura mínima para visibilidade */
+}
